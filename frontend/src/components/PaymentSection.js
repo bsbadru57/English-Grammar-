@@ -178,7 +178,7 @@ const PaymentSection = () => {
           </button>
           {selectedPlan && (
             <button 
-              onClick={() => window.open(`mailto:${mockPaymentInfo.supportEmail}?subject=Purchase ${selectedPlan.name}&body=Hi, I want to purchase ${selectedPlan.name} for ₹${selectedPlan.price}. Please send me the payment confirmation process.`)}
+              onClick={() => window.open(`mailto:${mockPaymentInfo.supportEmail}?subject=Purchase ${selectedPlan.name}&body=Hi, I want to purchase ${selectedPlan.name} for $${selectedPlan.price}. Please send me the payment confirmation process.`)}
               className="btn-primary"
             >
               <Mail size={20} />
