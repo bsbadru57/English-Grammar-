@@ -454,11 +454,111 @@ const PaymentSection = () => {
           margin-top: 0.5rem;
         }
 
+        .order-success {
+          margin-bottom: 3rem;
+          display: flex;
+          justify-content: center;
+        }
+
+        .success-card {
+          background: var(--bg-card);
+          border: 2px solid var(--brand-primary);
+          border-radius: 16px;
+          padding: 2rem;
+          text-align: center;
+          max-width: 500px;
+          width: 100%;
+        }
+
+        .success-card h3 {
+          margin: 1rem 0;
+          color: var(--brand-primary);
+        }
+
+        .success-card p {
+          margin: 0.5rem 0;
+        }
+
         .payment-content {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 3rem;
           margin-bottom: 3rem;
+        }
+
+        .order-form {
+          display: contents;
+        }
+
+        .form-card {
+          background: var(--bg-card);
+          border: 1px solid var(--border-medium);
+          border-radius: 16px;
+          padding: 2rem;
+        }
+
+        .form-card h3 {
+          text-align: center;
+          margin-bottom: 1.5rem;
+        }
+
+        .order-form-fields {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .form-label {
+          font-family: 'Inter', Arial, sans-serif;
+          font-weight: 600;
+          color: var(--text-primary);
+          font-size: 0.875rem;
+        }
+
+        .form-input,
+        .form-textarea {
+          background: var(--bg-page);
+          border: 1px solid var(--border-medium);
+          border-radius: 8px;
+          padding: 0.75rem;
+          font-family: 'Inter', Arial, sans-serif;
+          font-size: 0.875rem;
+          color: var(--text-primary);
+          transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+          outline: none;
+          border-color: var(--brand-primary);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+          color: var(--text-muted);
+        }
+
+        .form-submit {
+          margin-top: 1rem;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .form-submit:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        .form-note {
+          text-align: center;
+          color: var(--text-muted);
+          margin-top: 0.5rem;
         }
 
         .instruction-card,
