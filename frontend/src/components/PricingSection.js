@@ -70,7 +70,7 @@ const PricingSection = () => {
                   {plan.originalPrice && (
                     <span className="original-price">₹{plan.originalPrice}</span>
                   )}
-                  <span className="current-price">₹{plan.price}</span>
+                  <span className="current-price">${plan.price}</span>
                   <span className="price-period">one-time</span>
                 </div>
                 {plan.originalPrice && (
