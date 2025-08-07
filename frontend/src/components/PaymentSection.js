@@ -7,13 +7,24 @@ import {
   CheckCircle, 
   Copy,
   MessageCircle,
-  FileText
+  FileText,
+  Send
 } from "lucide-react";
 import { mockPaymentInfo, mockDownloadProcess } from "../mock";
 import { useToast } from "../hooks/use-toast";
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 const PaymentSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [orderForm, setOrderForm] = useState({
+    customerName: "",
+    customerEmail: "",
+    upiTransactionId: "",
+    notes: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [orderSuccess, setOrderSuccess] = useState(null);
   const { toast } = useToast();
 
   React.useEffect(() => {
