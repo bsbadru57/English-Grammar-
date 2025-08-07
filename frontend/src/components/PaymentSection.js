@@ -53,6 +53,83 @@ const PaymentSection = () => {
     });
   };
 
+  const handleFormChange = (e) => {
+    setOrderForm({
+      ...orderForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleOrderSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!selectedPlan) {
+      toast({
+        title: "Error",
+        description: "Please select a plan first",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!orderForm.customerName || !orderForm.customerEmail) {
+      toast({
+        title: "Error", 
+        description: "Please fill in your name and email",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      
+      const response = await fetch(`${API_URL}/api/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          customerName: orderForm.customerName,
+          customerEmail: orderForm.customerEmail,
+          planId: selectedPlan.id,
+          upiTransactionId: orderForm.upiTransactionId,
+          notes: orderForm.notes
+        })
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setOrderSuccess(data.data);
+        toast({
+          title: "Order Created!",
+          description: data.data.message,
+          duration: 5000
+        });
+        
+        // Reset form
+        setOrderForm({
+          customerName: "",
+          customerEmail: "",
+          upiTransactionId: "",
+          notes: ""
+        });
+      } else {
+        throw new Error(data.message || "Failed to create order");
+      }
+    } catch (error) {
+      console.error("Order creation error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to create order. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="payment" className="payment-section">
       <div className="container">
