@@ -69,84 +69,104 @@ const PricingSection = () => {
           </p>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="loading-state">
+            <p className="body-large">Loading plans...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="error-state">
+            <p className="body-large" style={{ color: "var(--destructive)" }}>
+              {error}. Please try again later.
+            </p>
+          </div>
+        )}
+
         {/* Pricing Cards Grid */}
-        <div className="pricing-grid">
-          {mockPlans.map((plan) => (
-            <div 
-              key={plan.id} 
-              className={`pricing-card ${plan.isBestValue ? 'best-value' : ''} ${plan.isPopular ? 'popular' : ''}`}
-            >
-              {/* Card Header */}
-              <div className="card-header">
-                {plan.isPopular && (
-                  <div className="badge popular-badge">Most Popular</div>
-                )}
-                {plan.isBestValue && (
-                  <div className="badge best-value-badge">Best Value</div>
-                )}
-                
-                <div className="plan-icon">
-                  <PlanIcon planName={plan.name} />
-                </div>
-                
-                <h3 className="plan-name heading-3">{plan.name}</h3>
-                <p className="plan-description body-medium">{plan.description}</p>
-              </div>
-
-              {/* Pricing */}
-              <div className="pricing-info">
-                <div className="price-display">
-                  {plan.originalPrice && (
-                    <span className="original-price">${plan.originalPrice}</span>
+        {!loading && !error && (
+          <div className="pricing-grid">
+            {plans.map((plan) => (
+              <div 
+                key={plan.id} 
+                className={`pricing-card ${plan.isBestValue ? 'best-value' : ''} ${plan.isPopular ? 'popular' : ''}`}
+              >
+                {/* Card Header */}
+                <div className="card-header">
+                  {plan.isPopular && (
+                    <div className="badge popular-badge">Most Popular</div>
                   )}
-                  <span className="current-price">${plan.price}</span>
-                  <span className="price-period">one-time</span>
-                </div>
-                {plan.originalPrice && (
-                  <div className="savings">
-                    Save ${plan.originalPrice - plan.price}
+                  {plan.isBestValue && (
+                    <div className="badge best-value-badge">Best Value</div>
+                  )}
+                  
+                  <div className="plan-icon">
+                    <PlanIcon planName={plan.name} />
                   </div>
-                )}
-              </div>
+                  
+                  <h3 className="plan-name heading-3">{plan.name}</h3>
+                  <p className="plan-description body-medium">{plan.description}</p>
+                </div>
 
-              {/* Features List */}
-              <div className="features-list">
-                <ul>
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="feature-item">
-                      <Check size={16} color="var(--brand-primary)" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {/* Pricing */}
+                <div className="pricing-info">
+                  <div className="price-display">
+                    {plan.originalPrice && (
+                      <span className="original-price">${plan.originalPrice}</span>
+                    )}
+                    <span className="current-price">${plan.price}</span>
+                    <span className="price-period">one-time</span>
+                  </div>
+                  {plan.originalPrice && (
+                    <div className="savings">
+                      Save ${plan.originalPrice - plan.price}
+                    </div>
+                  )}
+                </div>
 
-              {/* CTA Button */}
-              <div className="card-footer">
-                <button 
-                  onClick={() => handleSelectPlan(plan)}
-                  className={`plan-button ${plan.isBestValue ? 'btn-primary' : 'btn-secondary'}`}
-                >
-                  Choose {plan.name}
-                </button>
+                {/* Features List */}
+                <div className="features-list">
+                  <ul>
+                    {plan.features.map((feature, index) => (
+                      <li key={index} className="feature-item">
+                        <Check size={16} color="var(--brand-primary)" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA Button */}
+                <div className="card-footer">
+                  <button 
+                    onClick={() => handleSelectPlan(plan)}
+                    className={`plan-button ${plan.isBestValue ? 'btn-primary' : 'btn-secondary'}`}
+                  >
+                    Choose {plan.name}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Value Proposition */}
-        <div className="pricing-footer">
-          <div className="value-proposition">
-            <Crown size={32} color="var(--brand-primary)" />
-            <div className="value-content">
-              <h4 className="heading-3">Why Legend Plan is Unbeatable?</h4>
-              <p className="body-medium">
-                Get all three levels of content for the price of two! 
-                Basic Plan + Expert Plan + Exclusive Advanced Content = Complete English Mastery
-              </p>
+        {!loading && !error && (
+          <div className="pricing-footer">
+            <div className="value-proposition">
+              <Crown size={32} color="var(--brand-primary)" />
+              <div className="value-content">
+                <h4 className="heading-3">Why Legend Plan is Unbeatable?</h4>
+                <p className="body-medium">
+                  Get all three levels of content for the price of two! 
+                  Basic Plan + Expert Plan + Exclusive Advanced Content = Complete English Mastery
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       <style jsx>{`
