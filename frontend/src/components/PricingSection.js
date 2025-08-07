@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Check, Star, Crown, Zap } from "lucide-react";
-import { mockPlans } from "../mock";
+
+const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const PricingSection = () => {
   const handleSelectPlan = (plan) => {
