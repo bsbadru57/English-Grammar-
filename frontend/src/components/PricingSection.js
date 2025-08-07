@@ -4,6 +4,34 @@ import { Check, Star, Crown, Zap } from "lucide-react";
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const PricingSection = () => {
+  const [plans, setPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch plans from API
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${API_URL}/api/plans`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setPlans(data.data);
+        } else {
+          setError("Failed to load plans");
+        }
+      } catch (err) {
+        console.error("Error fetching plans:", err);
+        setError("Unable to connect to server");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlans();
+  }, []);
+
   const handleSelectPlan = (plan) => {
     // Store selected plan in localStorage for payment process
     localStorage.setItem('selectedPlan', JSON.stringify(plan));
