@@ -75,7 +75,7 @@ const PricingSection = () => {
                 </div>
                 {plan.originalPrice && (
                   <div className="savings">
-                    Save ₹{plan.originalPrice - plan.price}
+                    Save ${plan.originalPrice - plan.price}
                   </div>
                 )}
               </div>
