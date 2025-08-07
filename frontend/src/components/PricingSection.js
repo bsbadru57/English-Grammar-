@@ -189,6 +189,17 @@ const PricingSection = () => {
           margin: 0 auto;
         }
 
+        .loading-state,
+        .error-state {
+          text-align: center;
+          padding: 4rem 0;
+        }
+
+        .loading-state p,
+        .error-state p {
+          margin: 0;
+        }
+
         .pricing-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
