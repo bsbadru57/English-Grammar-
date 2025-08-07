@@ -780,6 +780,15 @@ const PaymentSection = () => {
           .quick-actions {
             flex-direction: column;
           }
+
+          .success-card,
+          .form-card {
+            padding: 1.5rem;
+          }
+
+          .order-form-fields {
+            gap: 1rem;
+          }
         }
       `}</style>
     </section>
