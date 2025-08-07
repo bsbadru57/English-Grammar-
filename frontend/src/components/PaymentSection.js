@@ -159,6 +159,23 @@ const PaymentSection = () => {
           </div>
         )}
 
+        {/* Order Success Message */}
+        {orderSuccess && (
+          <div className="order-success">
+            <div className="success-card">
+              <CheckCircle size={48} color="var(--brand-primary)" />
+              <h3 className="heading-3">Order Created Successfully!</h3>
+              <p className="body-medium">
+                <strong>Order ID:</strong> {orderSuccess.orderId}
+              </p>
+              <p className="body-small">
+                You will receive download links within 2-4 hours after payment confirmation.
+                Please keep this order ID for your records.
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="payment-content">
           {/* Payment Instructions */}
           <div className="payment-instructions">
