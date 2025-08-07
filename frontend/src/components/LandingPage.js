@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
 import PricingSection from "./PricingSection";
+import TestimonialsSection from "./TestimonialsSection";
 import PaymentSection from "./PaymentSection";
 import Footer from "./Footer";
 
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <Header />
       <HeroSection />
       <PricingSection />
+      <TestimonialsSection />
       <PaymentSection />
       <Footer />
     </div>
