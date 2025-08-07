@@ -214,8 +214,92 @@ const PaymentSection = () => {
             </div>
           </div>
 
-          {/* Download Process */}
-          <div className="download-process">
+          {/* Order Form */}
+          <div className="order-form">
+            <div className="form-card">
+              <div className="card-icon">
+                <Send size={32} color="var(--brand-primary)" />
+              </div>
+              <h3 className="heading-3">Complete Your Order</h3>
+              
+              <form onSubmit={handleOrderSubmit} className="order-form-fields">
+                <div className="form-group">
+                  <label htmlFor="customerName" className="form-label">
+                    Your Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="customerName"
+                    name="customerName"
+                    value={orderForm.customerName}
+                    onChange={handleFormChange}
+                    className="form-input"
+                    required
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="customerEmail" className="form-label">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="customerEmail"
+                    name="customerEmail"
+                    value={orderForm.customerEmail}
+                    onChange={handleFormChange}
+                    className="form-input"
+                    required
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="upiTransactionId" className="form-label">
+                    UPI Transaction ID (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    id="upiTransactionId"
+                    name="upiTransactionId"
+                    value={orderForm.upiTransactionId}
+                    onChange={handleFormChange}
+                    className="form-input"
+                    placeholder="Enter transaction ID if available"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="notes" className="form-label">
+                    Additional Notes (Optional)
+                  </label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    value={orderForm.notes}
+                    onChange={handleFormChange}
+                    className="form-textarea"
+                    rows="3"
+                    placeholder="Any special requests or notes"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !selectedPlan}
+                  className="btn-primary form-submit"
+                >
+                  {isSubmitting ? "Creating Order..." : "Create Order"}
+                </button>
+
+                <p className="form-note body-small">
+                  * Required fields. You'll receive download links after payment confirmation.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
             <div className="process-card">
               <div className="card-icon">
                 <Download size={32} color="var(--brand-primary)" />
