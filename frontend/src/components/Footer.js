@@ -69,15 +69,15 @@ const Footer = () => {
             <ul className="plans-list">
               <li className="plan-item">
                 <span className="plan-name">Basic Plan</span>
-                <span className="plan-price">₹2</span>
+                <span className="plan-price">$2</span>
               </li>
               <li className="plan-item">
                 <span className="plan-name">Expert Plan</span>
-                <span className="plan-price">₹5</span>
+                <span className="plan-price">$5</span>
               </li>
               <li className="plan-item best-plan">
                 <span className="plan-name">Legend Plan</span>
-                <span className="plan-price">₹15</span>
+                <span className="plan-price">$15</span>
                 <span className="plan-badge">Best Value</span>
               </li>
             </ul>
