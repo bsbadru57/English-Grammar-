@@ -5,6 +5,7 @@ export const mockPlans = [
     id: 1,
     name: "Basic Plan",
     price: 2,
+    currency: "$",
     originalPrice: null,
     description: "Perfect for beginners who want to master the fundamentals of English grammar",
     features: [
@@ -25,6 +26,7 @@ export const mockPlans = [
     id: 2,
     name: "Expert Plan", 
     price: 5,
+    currency: "$",
     originalPrice: null,
     description: "For intermediate learners who want to improve their daily English conversation",
     features: [
@@ -47,6 +49,7 @@ export const mockPlans = [
     id: 3,
     name: "Legend Plan",
     price: 15,
+    currency: "$",
     originalPrice: 22, // Basic ($2) + Expert ($5) + Legend premium value
     description: "The ultimate package - Everything you need to become an English master",
     features: [
