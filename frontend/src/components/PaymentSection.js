@@ -63,7 +63,7 @@ const PaymentSection = () => {
               <div className="plan-details">
                 <div className="plan-info">
                   <span className="plan-name-selected">{selectedPlan.name}</span>
-                  <span className="plan-price">₹{selectedPlan.price}</span>
+                  <span className="plan-price">${selectedPlan.price}</span>
                 </div>
                 <p className="plan-desc body-small">{selectedPlan.description}</p>
               </div>
