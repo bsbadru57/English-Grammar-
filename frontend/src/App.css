@@ -1,34 +1,234 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+/* Pixel Pushers Brand Colors */
+:root {
+  /* Backgrounds - Exact Pixel Pushers Colors */
+  --bg-page: #1a1c1b;                       /* Main black background */
+  --bg-card: #302f2c;                       /* Dark gray card backgrounds */
+  --bg-light: #dfddd6;                      /* Light backgrounds when needed */
+  
+  /* Text - Exact Pixel Pushers Colors */
+  --text-primary: #d9fb06;                  /* Lime green primary text */
+  --text-secondary: #888680;                /* Mid gray supporting text */
+  --text-muted: #302f2c;                    /* Dark gray muted text */
+  --text-inverse: #1a1c1b;                  /* Black text on light backgrounds */
+  
+  /* Borders - Exact Pixel Pushers Colors */
+  --border-light: rgba(63, 72, 22, 0.5);   /* Subtle olive-tinted borders */
+  --border-medium: #3f4816;                 /* Standard olive borders */
+  --border-strong: #888680;                 /* Strong gray borders */
+  
+  /* MAIN BRAND COLORS - Pixel Pushers Brand Colors Only */
+  --brand-primary: #d9fb06;                 /* Primary lime green */
+  --brand-hover: rgba(217, 251, 6, 0.8);   /* Hover state */
+  --brand-active: rgba(217, 251, 6, 0.6);  /* Active/pressed state */
+  
+  /* Supporting Colors - Use sparingly for variety */
+  --secondary-olive: #3f4816;               /* Dark olive green */
+  --secondary-yellow: #f8d47a;              /* Warm yellow accent */
+  --secondary-blue: #0073e6;                /* Blue for links */
+  --neutral-white: white;                   /* Pure white */
+  --neutral-light: #dfddd6;                 /* Light neutral */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
-.App-link {
-    color: #61dafb;
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-page);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Typography System - Pixel Pushers Sizing */
+.brand-display { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 900; 
+  font-size: clamp(3rem, 5.2571rem + 3.0476vw, 6rem); 
+  line-height: 0.9; 
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.heading-1 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 900; 
+  font-size: clamp(2.5rem, 3.2571rem + 2.0476vw, 4rem); 
+  line-height: 0.9; 
+  text-transform: uppercase; 
+  color: var(--text-primary);
+}
+
+.heading-2 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 700; 
+  font-size: clamp(2rem, 2.5rem + 1vw, 3rem); 
+  line-height: 1.1; 
+  color: var(--text-primary);
+}
+
+.heading-3 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 600; 
+  font-size: 1.5rem; 
+  line-height: 1.2; 
+  color: var(--text-primary);
+}
+
+.body-large { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 500; 
+  font-size: 1.25rem; 
+  line-height: 1.4; 
+  color: var(--text-secondary); 
+}
+
+.body-medium { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 400; 
+  font-size: 1rem; 
+  line-height: 1.5; 
+  color: var(--text-secondary); 
+}
+
+.body-small { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 400; 
+  font-size: 0.875rem; 
+  line-height: 1.4; 
+  color: var(--text-muted); 
+}
+
+/* Button Components - Pixel Pushers CTA Style */
+.btn-primary {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 10rem; /* Pill/Capsule - Extremely high corner radius */
+  padding: 1em 2em;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+  background: var(--brand-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  background: var(--brand-active);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+  border-radius: 10rem; /* Pill/Capsule - Extremely high corner radius */
+  padding: 1em 2em;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  transform: scale(1.02);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Container System - Pixel Pushers Breakpoints */
+.container {
+  max-width: 87.5rem; /* 1400px */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Spacing System - Pixel Pushers Values */
+.space-8 { margin: 8px; }     /* Small spacing */
+.space-20 { margin: 20px; }   /* Standard spacing */
+.space-40 { margin: 40px; }   /* Large spacing - main gap */
+.space-96 { margin: 96px; }   /* Section spacing */
+.space-120 { margin: 120px; } /* Major section spacing */
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-8 { margin-bottom: 8px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-40 { margin-bottom: 40px; }
+.mb-96 { margin-bottom: 96px; }
+
+.mt-8 { margin-top: 8px; }
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.mt-96 { margin-top: 96px; }
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-height: 52px;
+  }
+  
+  .brand-display {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet styles */
+}
+
+@media (min-width: 1200px) {
+  /* Desktop optimizations */
 }
